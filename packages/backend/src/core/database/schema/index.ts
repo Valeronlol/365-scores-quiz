@@ -1,0 +1,5 @@
+export * from '@/core/database/schema/user.schema'
+export * from '@/core/database/schema/question.schema'
+export * from '@/core/database/schema/answer.schema'
+export * from '@/core/database/schema/quiz_progress.schema'
+export * from '@/core/database/schema/relations'

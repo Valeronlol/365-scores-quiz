@@ -1,0 +1,47 @@
+networks:
+  365scores_network:
+
+volumes:
+  365scores_db_data:
+
+services:
+  db:
+    image: postgres:17.6-alpine
+    container_name: 365scores_db
+    restart: on-failure
+    environment:
+      - "POSTGRES_USER=${POSTGRES_USER:?err}"
+      - "POSTGRES_PASSWORD=${POSTGRES_PASSWORD:?err}"
+      - "POSTGRES_DB=${POSTGRES_DB:?err}"
+    volumes:
+      - 365scores_db_data:/var/lib/postgresql/data
+    networks:
+      - 365scores_network
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER:?err} -d ${POSTGRES_DB:?err}",
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 3s
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:?err}:5432"
+
+  pgweb:
+    image: sosedoff/pgweb:latest
+    container_name: 365scores_pgweb
+    environment:
+      PGWEB_DATABASE_URL: postgres://${POSTGRES_USER:?err}:${POSTGRES_PASSWORD:?err}@db:5432/${POSTGRES_DB:?err}?sslmode=disable
+    ports:
+      - 127.0.0.1:8081:8081
+    networks:
+      - 365scores_network
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "nc -vz 127.0.0.1 8081"]
+      interval: 5s
