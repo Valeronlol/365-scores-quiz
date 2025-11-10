@@ -34,4 +34,4 @@ bun run db:destroy
 ## Demo
 ![Db schema overview](docs/db-schema.png)
 ![Video preview](docs/video.gif)
-![PDF docs](https://github.com/valeronlol/365-scores-quiz/docs/db-schema.drawio.pdf){:target="_blank"}
+![PDF docs](https://github.com/Valeronlol/365-scores-quiz/blob/master/docs/db-schema.drawio.pdf)
