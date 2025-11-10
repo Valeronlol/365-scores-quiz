@@ -2,11 +2,16 @@
 
 - [Frontend docs](packages/frontend/README.md)
 - [Backend docs](packages/backend/README.md)
+- [PDF DB schema](https://github.com/Valeronlol/365-scores-quiz/blob/master/docs/db-schema.drawio.pdf)
+
+
+# Requirements
+
+- installed [Bun](https://bun.com/get)
+- installed [Docker](https://docs.docker.com/engine/install/)
 
 
 # Getting Started
-- install [Bun](https://bun.com/get)
-- install [Docker](https://docs.docker.com/engine/install/)
 
 To run this application on local machine:
 
@@ -34,4 +39,3 @@ bun run db:destroy
 ## Demo
 ![Db schema overview](docs/db-schema.png)
 ![Video preview](docs/video.gif)
-![PDF docs](https://github.com/Valeronlol/365-scores-quiz/blob/master/docs/db-schema.drawio.pdf)
