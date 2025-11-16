@@ -16,7 +16,7 @@
 To run this application on local machine:
 
 ```bash
-# install depends
+# to install both monorepo dependencies fe+be
 bun install
 
 # run postgres and pgweb inside docker container
@@ -28,7 +28,7 @@ cd packages/backend/
 bunx drizzle-kit push
 bun run seed content
 
-# run local frontend and backend dev server on host machine
+# run local monorepo frontend and backend dev server on host machine
 # frontend will be available on http://127.0.0.1:3000/
 bun run dev
 
@@ -36,6 +36,6 @@ bun run dev
 bun run db:destroy
 ```
 
-## Demo
+# Demo
 ![Db schema overview](docs/db-schema.png)
 ![Video preview](docs/video.gif)
