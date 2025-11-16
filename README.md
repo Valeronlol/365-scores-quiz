@@ -39,3 +39,4 @@ bun run db:destroy
 # Demo
 ![Db schema overview](docs/db-schema.png)
 ![Video preview](docs/video.gif)
+![Data flow overview](docs/overview.png)
